@@ -6,7 +6,7 @@ using DG.Tweening;
 public class SelfDestroyer : MonoBehaviour
 {
     private GameObject destructionpoint;
-    private Material _thisMaterial;
+  //  private Material _thisMaterial;
 
     void Start()
     {
@@ -24,7 +24,8 @@ public class SelfDestroyer : MonoBehaviour
     {
         if (transform.position.y< destructionpoint.transform.position.y)
         {
-            gameObject.SetActive(false);
+
+            Playercontroller.instance.RemoveFromList(this.gameObject);
         }
   
     }

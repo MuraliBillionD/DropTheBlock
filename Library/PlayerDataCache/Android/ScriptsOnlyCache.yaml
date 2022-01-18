@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Ball_movement
     - FollowCam
+    - LevelController
     - ObjectPool
     - Playercontroller
     - SelfDestroyer
@@ -17,7 +18,6 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -57,34 +57,32 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1492}
     - Class: 114
-      Script: {instanceID: 2006}
+      Script: {instanceID: 1738}
     - Class: 114
-      Script: {instanceID: 2292}
+      Script: {instanceID: 2008}
     - Class: 114
-      Script: {instanceID: 2404}
+      Script: {instanceID: 2174}
     - Class: 114
-      Script: {instanceID: 2570}
+      Script: {instanceID: 2240}
     - Class: 114
-      Script: {instanceID: 2752}
+      Script: {instanceID: 2306}
     - Class: 114
-      Script: {instanceID: 2838}
+      Script: {instanceID: 2418}
     - Class: 114
-      Script: {instanceID: 21614}
+      Script: {instanceID: 2584}
     - Class: 114
-      Script: {instanceID: 23460}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 25224}
+      Script: {instanceID: 2768}
     - Class: 114
-      Script: {instanceID: 30702}
+      Script: {instanceID: 2774}
     - Class: 114
-      Script: {instanceID: 34992}
+      Script: {instanceID: 2812}
     - Class: 114
-      Script: {instanceID: 43558}
+      Script: {instanceID: 3164}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 134
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -169,6 +167,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 0ac28bfa529a8b67e6b5d87c13d6a200
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -197,6 +201,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SelfDestroyer
+  - hash:
+      serializedVersion: 2
+      Hash: 4ca1fbd6744cb5c70c412f29df929d9e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ObjectPool
   - hash:
       serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
@@ -271,6 +287,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 83e769eee07fc231384c812eedbb8224
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FollowCam
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -281,6 +303,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: StandaloneInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 8b9e6be1cd38bf35efa234a8851be397
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Playercontroller
   - hash:
       serializedVersion: 2
       Hash: f7858108331b563fb41b80b729297acd
@@ -299,6 +327,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: e1fc6219cf5348409e613f8686ef24b3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Ball_movement
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
@@ -353,6 +387,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 704dcd31abc789439bc3f3cd10b58c2b
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 9b2663563359a91d0a6867fee160c936
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenSettings
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -499,6 +545,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NewBehaviourScript
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -521,55 +573,7 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: a0a84756c8f2a111e624051cb0f0dde4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Ball_movement
-  - hash:
-      serializedVersion: 2
-      Hash: 8b9e6be1cd38bf35efa234a8851be397
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Playercontroller
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NewBehaviourScript
-  - hash:
-      serializedVersion: 2
-      Hash: 4ca1fbd6744cb5c70c412f29df929d9e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ObjectPool
-  - hash:
-      serializedVersion: 2
-      Hash: 83e769eee07fc231384c812eedbb8224
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FollowCam
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SelfDestroyer
-  - hash:
-      serializedVersion: 2
-      Hash: 704dcd31abc789439bc3f3cd10b58c2b
-    assemblyName: DOTween.dll
-    namespaceName: DG.Tweening.Core
-    className: DOTweenComponent
-  - hash:
-      serializedVersion: 2
-      Hash: 9b2663563359a91d0a6867fee160c936
-    assemblyName: DOTween.dll
-    namespaceName: DG.Tweening.Core
-    className: DOTweenSettings
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/UnityProjects/Building_Blocks/DropTheBlock1.apk
+  playerPath: C:/UnityProjects/GITHUB/DropTheBlock/Builds/DropTheBlock3.apk
