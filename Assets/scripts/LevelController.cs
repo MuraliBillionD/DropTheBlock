@@ -8,23 +8,22 @@ public class LevelController : MonoBehaviour
 {
 
     public static LevelController instance;
-    public Color32[] GameColors;
+    public ColorPalettes[] Color_palettes;
+
     public Material _material;
-    public float _CheckPoint;
-
-
 
     [SerializeField]
     private GameObject _wallPrefab;
     private MeshRenderer _meshRenderer;
     [SerializeField]
     private GameObject _ball;
-    private float _counter;
+    
     private Vector3 ColorPanel;
     private float scorecount;
     private float difference;
 
     public Camera cam;
+    public int ran;
 
     private void Awake()
     {
@@ -46,36 +45,38 @@ public class LevelController : MonoBehaviour
     private void Start()
     {
         _meshRenderer = _wallPrefab.GetComponentInChildren<MeshRenderer>();
-        _counter = _CheckPoint;
+        ran = 0;
+
+        //RESETING EVERYTIME WHEN THE LEVEL LOADS
+        LevelLoader.instance.Resetloading();
+
     }
 
-    private void Update()
+public void RandomPalete()
     {
-         difference = (_CheckPoint - _ball.transform.position.y)/_counter;
-        if (_CheckPoint<=_ball.transform.position.y)
+        ran++;
+        if (ran >= Color_palettes.Length)
         {
-            _CheckPoint += _counter;
-          
+            ran = 0;
         }
-        
     }
     /// <summary>
     /// function responsible for giving the color to mesh
     /// </summary>
     /// <param name="mesh"></param>
 
-    public void ColorMesh(Mesh mesh)
+    public void ColorMesh(Mesh mesh,float f)
     {
         Vector3[] vertices = mesh.vertices;
         Color32[] colors = new Color32[vertices.Length];
 
-        float time = Mathf.Sin(difference);
+        float time = Mathf.Sin(f*0.0125f);
         
 
         for(int i=0;i<vertices.Length;i++)
         {
 
-            colors[i] = Lerp4(GameColors[0], GameColors[1], GameColors[2], GameColors[3],time);
+            colors[i] = Lerp4(Color_palettes[ran]. GameColors[0], Color_palettes[ran].GameColors[1], Color_palettes[ran].GameColors[2], Color_palettes[ran].GameColors[3],time);
         }
         mesh.colors32 = colors;
     }
@@ -91,20 +92,48 @@ public class LevelController : MonoBehaviour
     /// <returns></returns>
     private Color32 Lerp4(Color32 a, Color32 b, Color32 c, Color32 d,float timer)
     {
-      if(timer<0.33f)
+      if(timer<0.25f)
         {
-            cam.backgroundColor= Color.Lerp(a, b, timer / 0.33f);
-            return Color.Lerp(a, b, timer / 0.33f);
+            cam.backgroundColor= Color.Lerp(a, b, timer / 0.25f);
+            return Color.Lerp(a, b, timer / 0.25f);
         }
-        else if (timer < 0.66f)
+        else if (timer < 0.50f)
         {
-            cam.backgroundColor = Color.Lerp(b, c, (timer - 0.33f) / 0.33f);
-            return Color.Lerp(b, c, (timer -0.33f)/ 0.33f);
+            cam.backgroundColor = Color.Lerp(b ,c, (timer - 0.25f) / 0.25f);
+            return Color.Lerp(b, c, (timer -0.25f)/ 0.25f);
         }
-      else
+        else if (timer < 0.75f)
+        {
+            cam.backgroundColor = Color.Lerp(c, d, (timer - 0.50f) / 0.50f);
+            return Color.Lerp(c, d, (timer - 0.50f) / 0.50f);
+        }
+        else
        {
-            cam.backgroundColor = Color.Lerp(c, d, (timer - 0.66f) / 0.66f);
-            return Color.Lerp(c, d, (timer - 0.66f) / 0.66f);
+            cam.backgroundColor = Color.Lerp(d, a, (timer - 0.75f) / 0.75f);
+            return Color.Lerp(d, a, (timer - 0.75f) / 0.75f);
        }
     }
+
+
+    private Color32 LerpColors(Color32 a, Color32 b, Color32 c,float timer)
+    {
+        if (timer < 0.95f)
+        {
+            cam.backgroundColor = Color.Lerp(a, b, timer / 0.95f);
+            return Color.Lerp(a, b, timer / 0.95f);
+        }
+        else
+        {
+            timer = 0f;
+            cam.backgroundColor = Color.Lerp(b, c, timer / 0.95f);
+            return Color.Lerp(a, b, timer / 0.95f);
+        }
+    }
+
+}
+[System.Serializable]
+public class ColorPalettes
+{
+    public Color32[] GameColors;
+
 }
